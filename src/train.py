@@ -1,12 +1,21 @@
 import xgboost as xgb
 import joblib
 import os
-from .preprocessing import load_and_preprocess_data
+from utils.preprocessing import load_and_preprocess_data
 from utils.logger import setup_logger
+from datetime import datetime
 
 
 def train_model(data_path, model_save_path, log_dir="log"):
-    logger = setup_logger(log_dir=log_dir)
+    """
+    训练模型
+    :param data_path: 数据路径
+    :param model_save_path: 模型保存路径
+    :param log_dir: 日志目录
+    """
+    logger = setup_logger(log_dir=log_dir,
+                          name=f"train_{datetime.now().strftime('%Y-%m-%d')}")
+    # logger = setup_logger(log_dir=log_dir)
     logger.info("开始加载和预处理数据...")
 
     X_train, X_test, y_train, y_test, scaler_X, scaler_y, feature_names =\

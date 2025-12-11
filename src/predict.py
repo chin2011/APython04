@@ -8,13 +8,17 @@ def predict(model_path, scaler_x_path, scaler_y_path, features_path, input_data)
     """
     :param input_data: dict or DataFrame，包含与训练时相同的特征
     """
+    # 加载模型
     model = xgb.XGBRegressor()
     model.load_model(model_path)
 
+    # 加载X特征缩放器
     scaler_X = joblib.load(scaler_x_path)
+    # 加载y特征缩放器
     scaler_y = joblib.load(scaler_y_path)
     feature_names = joblib.load(features_path)
 
+    # 处理输入数据
     if isinstance(input_data, dict):
         input_df = pd.DataFrame([input_data])
     else:

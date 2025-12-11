@@ -16,3 +16,35 @@ def setup_logger(log_dir="log", name="train"):
         ]
     )
     return logging.getLogger(name)
+
+
+def log_dm01():
+    logger = setup_logger('../log', 'demo')
+    logger.info(f"当前时间: {datetime.now()}")
+    logger.info("开始计算...")
+    try:
+        a = 10 / 0
+    except Exception as e:
+        logger.error(f"错误信息: {e}")
+    else:
+        logger.info("计算成功")
+    finally:
+        logger.info("计算结束")
+        
+
+# 2.生成train_年月日.Log日志文件。
+def log_dm02():
+    logger = setup_logger(log_dir=f"../log",
+                          name=f"train_{datetime.now().strftime('%Y-%m-%d')}")
+    logger.info("开始计算...")
+    a = 10 / 2
+    logger.info(f"计算结果: {a}")
+    logger.info("计算结束")
+    
+    
+    
+if __name__ == '__main__':
+    # log_dm01()
+    log_dm02()
+    
+    

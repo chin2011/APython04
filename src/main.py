@@ -16,7 +16,7 @@ if __name__ == "__main__":
         scaler_y_path="../model/xgboost_model_scaler_y.pkl",
         features_path="../model/xgboost_model_features.pkl",
         input_data={
-            "time": "2011-12-01 00:00:00",
+            "time": "2015-12-01 00:00:00",
             "temperature": 25.0,
             "humidity": 60.0,
             "load": 100.0

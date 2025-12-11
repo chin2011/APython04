@@ -90,8 +90,10 @@ def fn_find_k():
     
     # 4.绘制图像
     plt.figure(figsize=(8, 5))
+    # subplot(1, 2, 1): 子图1，1行2列，1号子图
     plt.subplot(1, 2, 1)
     plt.plot(range(2, 20), sse_list, marker='o', label='SSE')
+    # subplot(1, 2, 2): 子图2，1行2列，2号子图
     plt.subplot(1, 2, 2)
     plt.plot(range(2, 20), sc_list, marker='o', label='SC')
     plt.show()
